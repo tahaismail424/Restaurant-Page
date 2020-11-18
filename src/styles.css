@@ -1,0 +1,23 @@
+
+@font-face {
+    font-family: 'bigLogo';
+    src: url(~assets/FintHeavy.otf);
+}
+
+h1 {
+  
+}
+
+#logo {
+    height: 100px;
+    width: 100px;
+    display: block;
+}
+#title-box {
+    margin: auto;
+    width: 50%;
+    font-family: 'bigLogo', Arial;
+    font-size: 60px;
+    color: #75421b;
+    text-align: center;
+}
