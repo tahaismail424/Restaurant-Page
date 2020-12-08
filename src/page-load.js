@@ -1,6 +1,9 @@
 import brewLogo from './assets/brewster-logo.jpg';
+import peach from './assets/peach.png'
+import leaf from './assets/leaf.png'
+import home from './assets/house.png'
 
-function createElement(type, text, parent, img) {
+export function createElement(type, text, parent, img) {
     let ele = document.createElement(type);
     let eleText = document.createTextNode(text);
     ele.appendChild(eleText);
@@ -8,10 +11,17 @@ function createElement(type, text, parent, img) {
     if (img) ele.src = img;
     return ele;
 }
-function loadPage () {
+export function loadPage () {
 
     const webPage = document.querySelector('#content');
-    console.log("You smell like beef");    
+    console.log("You smell like beef");  
+    
+    let peachPic = createElement('img', '', webPage, peach);
+    peachPic.classList.add('peach');
+    let leafPic = createElement('img', '', webPage, leaf);
+    leafPic.classList.add('leaf');
+    let homePic = createElement('img', '', webPage, home);
+    homePic.classList.add('home');
 
     //title
 
@@ -23,46 +33,43 @@ function loadPage () {
     logo.setAttribute('id', 'logo');
 
     let tabs = createElement('div', '', webPage);
-    tabs.classList.add('tabsy');
+    tabs.classList.add('tab');
 
-    function makeTab(num) {
-        let tab = createElement('input', '', tabs);
-        tab.setAttribute('type', 'radio');
-        tab.setAttribute('id', `tab${num + 1}`);
-        tab.setAttribute('name','tab');
-        
-    
-        let tabbutton = createElement('label', `Tab ${num + 1}`, tabs);
-        tabbutton.classList.add('tabButton');
-        tabbutton.setAttribute('for', `tab${num + 1}`);
-    
-        let tabContentHolder = createElement('div', '', tabs);
-        tabContentHolder.classList.add('tab');
-    
-        let tabContent = createElement('div', `Content ${num + 1}`, tabContentHolder);
-        tabContent.classList.add('content');
+    function makeTab(name) {
+        let tab;
+        if (name === 'about-us') tab = createElement('button', "About Us", tabs);
+        else if (name === 'contact-us') tab = createElement('button', "Contact Us", tabs);
+        else tab = createElement('button', name, tabs);
+        tab.classList.add(name);
+        tab.classList.add('tablink');
+
+        if (name === 'about-us') tab.setAttribute('id', 'defaultOpen');
+
+        return tab;
+    }
+
+    function makeTabContent(name) {
+        let tabContent = createElement('div', name, tabs);
+        tabContent.setAttribute('id', name);
+        tabContent.classList.add('tabcontent');
 
         return tabContent;
-    
+
     }
 
-    //tab1
-    let tabbies = [];
+    let tabNames = ['Home', 'Menu', 'Locations',
+'about-us', 'contact-us', 'Careers'];
     for (let i = 0; i < 6; i++) {
-        tabbies[i] = makeTab(i)
+        makeTab(tabNames[i]);
     }
-    tabbies[0].setAttribute('id', 'home');
-    tabbies[0].setAttribute('id', 'menu');
-    tabbies[0].setAttribute('id', 'locations');
-    tabbies[0].setAttribute('id', 'about-us');
-    tabbies[0].setAttribute('id', 'contact-us');
-    tabbies[0].setAttribute('id', 'careers');
+    for (let i = 0; i < 6; i++) {
+        makeTabContent(tabNames[i]);
+    }
+    
 }
 
 
 
-export default loadPage;
-export {createElement as newNode};
 
 
 

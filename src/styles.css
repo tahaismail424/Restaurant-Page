@@ -4,8 +4,34 @@
     src: url(~assets/FintHeavy.otf);
 }
 
-h1 {
-  
+@font-face {
+    font-family: 'animal-text';
+    src: url(~assets/nintendoP_Humming-E_002pr.otf);
+}
+
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.peach {
+    height: 25px;
+    filter: brightness(500%);
+    background-repeat: space;
+
+}
+
+.leaf {
+    height: 25px;
+    filter: brightness(500%);
+    background-repeat: space;
+}
+
+.home {
+    height: 25px;
+    filter: brightness(500%);
+    background-repeat: space;
 }
 
 #logo {
@@ -18,6 +44,296 @@ h1 {
     width: 50%;
     font-family: 'bigLogo', Arial;
     font-size: 60px;
-    color: #75421b;
+    color: #65350f;
     text-align: center;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+body {
+    background-color:  #237d3f;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: .3s;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    animation: fadeEffect 1s;
+}
+
+.homebox {
+    background-color:#65350f;
+    border-color: #46260b;
+    border-width: 10px;
+    border-radius: 20px;
+    margin: 60px;
+
+    padding: 10px;
+}
+
+.home-title {
+    font-family: 'animal-text', 'Arial';
+    text-align: left;
+    margin-top: 10%;
+    color: white;
+}
+
+.home-list {
+
+
+}
+
+.listed-item {
+    color: white;
+    font-family: 'animal-text', 'Arial';
+    
+}
+
+.hometab {
+    background-color: #237d3f;
+}
+
+.coffeeimg {
+    clear: left;
+    height: 20vh;
+    width: 20vw;
+    margin: 10px;
+    position: absolute;
+
+    margin-left: 420px;
+    margin-top: 10px;
+
+   
+}
+
+.home-info {
+    font-family: 'animal-text', 'Arial';
+    color: white;
+}
+
+.menubox {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    margin: 60px;
+    background-color: #237d3f;
+}
+
+.coffee-menu {
+    grid-column: 1 / span 9;
+    grid-row: 1;
+}
+
+.pancake-menu {
+    grid-column: 1 / span 3;
+    grid-row: 2;
+}
+
+.pancake-pic {
+    height: 50vh;
+    width: 25vw;
+}
+.honeycomb-menu {
+    grid-column: 4 / span 2;
+    grid-row: 2;
+}
+
+.honeycomb-pic {
+    height: 40vh;
+    width: 20vw;
+}
+.honeylemon-menu {
+    grid-column: 6 / span 2;
+    grid-row: 2;
+}
+
+.honeylemon-pic {
+    height: 40vh;
+    width: 20vw;
+}
+
+.chocolate-menu {
+    grid-column: 8 / span 2;
+    grid-row: 2;
+}
+
+.chocolate-pic {
+    height: 36vh;
+    width: 16vw;
+}
+
+.apple-menu {
+    grid-column: 1 / span 3;
+    grid-row: 3;
+}
+
+.apple-pic {
+    height: 55vh;
+    width: 30vw;
+}
+
+.donut-menu {
+    grid-column: 4 / span 3;
+    grid-row: 3;
+}
+.donut-pic {
+    height: 50vh;
+    width: 28vw;
+}
+
+.pumpkin-menu {
+    grid-column: 7 / span 3;
+    grid-row: 3;
+}
+
+.pumpkin-pic {
+    height: 45vh;
+    width: 26vw;
+}
+
+.mochi-menu {
+    grid-column: 1 / span 2;
+    grid-row: 4;
+}
+
+.mochi-pic {
+    height: 40vh;
+    width: 18vw;
+}
+
+.cupcake-menu {
+    grid-column: 3 / span 2;
+    grid-row: 4;
+}
+
+.cupcake-pic {
+    height: 40vh;
+    width: 20vw;
+}
+
+.menu-item {
+ 
+    font-family: 'animal-text';
+    background-color: white;
+    margin: 10px;
+    position: relative;
+}
+
+.milk-list {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.sugar-list {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.beans-list {
+    display: inline-block;
+    list-style-type: none;
+}
+
+
+
+.coffee-list-item:before {
+    content: '-';
+    text-indent: -5px;
+}
+
+
+.locationbox {
+    margin: 60px;
+    font-family: 'animal-text';
+    background-color: #237d3f;
+    color: white;
+
+}
+
+.aboutbox {
+    margin: 60px;
+    background-color: #237d3f;
+    font-family: 'animal-text';
+    color: white;
+
+}
+
+.contactbox {
+    margin: 60px;
+    font-family: 'animal-text';
+    background-color: #237d3f;
+    color: white;
+}
+
+.careerbox {
+    margin: 60px;
+    font-family: 'animal-text';
+    background-color: #237d3f;
+    color: white;
+}
+
+
+.bell-bag {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+}
+
+.bell-price {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.cafe-pic {
+    height: 40vh;
+    width: 40vw;
+    display: block;
+    margin: auto;
+}
+
+.other-loc {
+    text-align: center;
+    font-size: 30px;
+
+}
+
+.oakville {
+    text-align: center;
+    font-size: 40px;
+}
+
+.info {
+    text-align: center;
+    font-size: 15px;
+}
+
+.prof-img {
+    height: 30vh;
+
 }

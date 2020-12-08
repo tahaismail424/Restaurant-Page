@@ -1,21 +1,24 @@
 import './styles.css';
-require('tabsy-css/dist/tabsy.css');
-import pageLoad from './page-load.js';
+import * as loader from './page-load.js';
 import loadHome from './home.js';
-import loadMenu from './home.js';
-import loadLocation from './home.js';
-import loadAboutUs from './home.js';
-import loadContactUs from './home.js';
-import loadCareers from './home.js';
+import loadMenu from './menu.js';
+import loadLocations from './locations.js';
+import loadAboutUs from './about-us.js';
+import loadContactUs from './contact-us.js';
+import loadCareers from './careers.js';
 
-pageLoad();
-document.getElementById('tab1').checked = true;
+
+
+loader.loadPage();
+
 console.log('HIIII!!!');
 
-const tabs= document.querySelectorAll('input[name="tab"]');
-const contents = document.querySelectorAll('.content');
+const tabs = document.querySelectorAll('.tablink');
+const contents = document.querySelectorAll('.tabcontent');
 
 function switchTab(e) {
+
+
 
     let tabPos = Array.prototype.indexOf.call(tabs, e.target);
 
@@ -27,24 +30,42 @@ function switchTab(e) {
         }
     });
 
+    //removes active class from every tab
+
+    tabs.forEach((tab) => {
+        tab.classList.remove('active');
+    })
+
+    contents.forEach((content) => {
+        content.style.display = "none";
+    })
+
+    
+    function loadTab(loader) {
+        tabs[tabPos].classList.add('active');
+        loader();
+        contents[tabPos].style.display = 'block';
+
+    }
+
     switch (contents[tabPos].id) {
-        case 'home':
-            loadHome();
+        case 'Home':
+            loadTab(loadHome);
             break;
-        case 'menu':
-            loadMenu();
+        case 'Menu':
+            loadTab(loadMenu);
             break;
-        case 'location':
-            loadLocation();
+        case 'Locations':
+            loadTab(loadLocations);
             break;
         case 'about-us':
-            loadAboutUs();
+            loadTab(loadAboutUs);
             break;
         case 'contact-us':
-            loadContactUs();
+            loadTab(loadContactUs);
             break;
-        case 'careers':
-            loadCareers();
+        case 'Careers':
+            loadTab(loadCareers);
             break;
     }
 }
@@ -53,6 +74,8 @@ function switchTab(e) {
 tabs.forEach((tab) => {
     tab.addEventListener('click', switchTab);
 })
+
+document.getElementById('defaultOpen').click();
  
 
 
